@@ -28,15 +28,17 @@ public class Main extends Application {
         Slider[] rgbSlideArray = new Slider[3];
 
         /* Create sliders with min values of 0, maxes of 255 and a
-         * starting value of zero. Also set tick units, and
-         * explicitly set orientation.
+         * starting value of zero. Also set tick units, orientation,
+         * tick values, and slider width to 512 pixels.
          */
         for (int i = 0; i < rgbSlideArray.length; i++) {
             rgbSlideArray[i] = new Slider(0, 255, 0);
             rgbSlideArray[i].setOrientation(Orientation.HORIZONTAL);
-            rgbSlideArray[i].setShowTickMarks(true);
             rgbSlideArray[i].setMajorTickUnit(15);
             rgbSlideArray[i].setMinorTickCount(5);
+            rgbSlideArray[i].setShowTickMarks(true);
+            rgbSlideArray[i].setShowTickLabels(true);
+            rgbSlideArray[i].setPrefWidth(512);
         }
 
 
