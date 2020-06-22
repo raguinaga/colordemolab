@@ -1,12 +1,14 @@
 package ColorControlPanel_Roberto_Aguinaga;
 
 import javafx.application.Application;
+import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -17,12 +19,25 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage stage) {
-        // Create slider controls for rgb values
-        Slider redSlider = new Slider();
-        Slider greenSlider = new Slider();
-        Slider blueSlider = new Slider();
+        // Create an array of sliders
+        // Element 0 represents Red values
+        // Element 1 represents Green values
+        // Element 2 represents Blue values
+        Slider[] rgbSlideArray = new Slider[3];
 
-        // Create lables for sliders
+        /* Create sliders with min values of 0, maxes of 255 and a
+         * starting value of zero. Also set
+         */
+        for (int i = 0; i < rgbSlideArray.length; i++) {
+            rgbSlideArray[i] = new Slider(0, 255, 0);
+            rgbSlideArray[i].setOrientation(Orientation.HORIZONTAL);
+            rgbSlideArray[i].setShowTickMarks(true);
+            rgbSlideArray[i].setMajorTickUnit(15);
+            rgbSlideArray[i].setMinorTickCount(5);
+        }
+
+
+        // Create labels for sliders
         Label redSliderLabel = new Label("Red:");
         Label greenSliderLabel = new Label("Green:");
         Label blueSliderLabel = new Label("Blue:");
@@ -33,6 +48,8 @@ public class Main extends Application {
 
         // Create an HBox
         HBox slidersBox = new HBox(10, redSliderLabel, redSlider);
+        // Create a VBox to house the Hboxes
+        VBox vbox = new VBox();
         // Create scene
         Scene scene = new Scene();
         // Set title and launch stage
