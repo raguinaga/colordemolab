@@ -1,10 +1,13 @@
 package ColorControlPanel_Roberto_Aguinaga;
 
 import javafx.application.Application;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 public class Main extends Application {
 
@@ -19,8 +22,17 @@ public class Main extends Application {
         Slider sliderGreen = new Slider();
         Slider sliderBlue = new Slider();
 
-        //Create a textbox area
+        // Create lables for sliders
+        Label redSliderLabel = new Label("Red:");
+        Label greenSliderLabel = new Label("Green:");
+        Label blueSliderLabel = new Label("Blue:");
+
+        //Create a textarea and textfield control
         TextArea textBox = new TextArea();
+        TextField userRGBValue = new TextField();
+
+        // Create an HBox
+        HBox slidersBox = new HBox()
         // Create scene
         Scene scene = new Scene();
         // Set title and launch stage
