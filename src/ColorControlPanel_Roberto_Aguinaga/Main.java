@@ -18,9 +18,9 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         // Create slider controls for rgb values
-        Slider sliderRed = new Slider();
-        Slider sliderGreen = new Slider();
-        Slider sliderBlue = new Slider();
+        Slider redSlider = new Slider();
+        Slider greenSlider = new Slider();
+        Slider blueSlider = new Slider();
 
         // Create lables for sliders
         Label redSliderLabel = new Label("Red:");
@@ -32,7 +32,7 @@ public class Main extends Application {
         TextField userRGBValue = new TextField();
 
         // Create an HBox
-        HBox slidersBox = new HBox()
+        HBox slidersBox = new HBox(10, redSliderLabel, redSlider);
         // Create scene
         Scene scene = new Scene();
         // Set title and launch stage
