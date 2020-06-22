@@ -47,13 +47,18 @@ public class Main extends Application {
         TextField userRGBValue = new TextField();
 
         // Create an HBox
-        HBox slidersBox = new HBox(10, redSliderLabel, redSlider);
+        HBox redHbox = new HBox(10, redSliderLabel,
+                rgbSlideArray[0]);
+        HBox greenHbox = new HBox(10, greenSliderLabel,
+                rgbSlideArray[1]);
+        HBox blueHbox = new HBox(10, blueSliderLabel, rgbSlideArray[2]);
         // Create a VBox to house the Hboxes
-        VBox vbox = new VBox();
+        VBox vbox = new VBox(2,redHbox,greenHbox,blueHbox);
         // Create scene
-        Scene scene = new Scene();
+        Scene scene = new Scene(vbox);
         // Set title and launch stage
         stage.setTitle("Color Demo");
+        stage.setScene(scene);
         stage.show();
     }
 
