@@ -1,6 +1,7 @@
 package ColorControlPanel_Roberto_Aguinaga;
 
 import javafx.application.Application;
+import javafx.stage.Stage;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -10,12 +11,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.geometry.Insets;
+
 
 public class Main extends Application {
 
     /**
-     *  start launches gui app
+     * start launches gui app
+     *
      * @param stage Stage reference
      */
     @Override
@@ -47,7 +50,7 @@ public class Main extends Application {
         Label greenSliderLabel = new Label("Green:");
         Label blueSliderLabel = new Label("Blue:");
 
-        //Create a textarea, textfield and button controls
+        // Create textarea, textfield and button controls
         TextArea textBox = new TextArea();
         TextField userRGBValue = new TextField();
         Button applyRGBValue = new Button("Apply RGB Value");
@@ -58,12 +61,12 @@ public class Main extends Application {
         HBox greenHbox = new HBox(10, greenSliderLabel,
                 rgbSlideArray[1]);
         HBox blueHbox = new HBox(10, blueSliderLabel, rgbSlideArray[2]);
-        HBox buttonHBox = new HBox(userRGBValue,applyRGBValue);
+        HBox buttonHBox = new HBox(userRGBValue, applyRGBValue);
 
-        // Create a VBox to house the Hboxes
-        VBox vbox = new VBox(2,redHbox,greenHbox,blueHbox,
+        // Create a VBox to house the Hboxes, add padding.
+        VBox vbox = new VBox(10, redHbox, greenHbox, blueHbox,
                 buttonHBox, textBox);
-
+        vbox.setPadding(new Insets(10));
         // Create scene with Vbox as the root node.
         Scene scene = new Scene(vbox);
 
