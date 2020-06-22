@@ -45,9 +45,10 @@ public class Main extends Application {
         Label greenSliderLabel = new Label("Green:");
         Label blueSliderLabel = new Label("Blue:");
 
-        //Create a textarea and textfield control
+        //Create a textarea, textfield and button controls
         TextArea textBox = new TextArea();
         TextField userRGBValue = new TextField();
+        Button applyRGBValue = new Button("Apply RGB Value");
 
         // Create HBoxes for sliders and their labels
         HBox redHbox = new HBox(10, redSliderLabel,
@@ -55,10 +56,11 @@ public class Main extends Application {
         HBox greenHbox = new HBox(10, greenSliderLabel,
                 rgbSlideArray[1]);
         HBox blueHbox = new HBox(10, blueSliderLabel, rgbSlideArray[2]);
+        HBox buttonHBox = new HBox(userRGBValue,applyRGBValue);
 
         // Create a VBox to house the Hboxes
         VBox vbox = new VBox(2,redHbox,greenHbox,blueHbox,
-                userRGBValue,textBox);
+                buttonHBox, textBox);
 
         // Create scene with Vbox as the root node.
         Scene scene = new Scene(vbox);
