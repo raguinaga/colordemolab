@@ -13,8 +13,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
 
-
 public class Main extends Application {
+    /* Const values for sliders to ensure consistency? */
+    final double SLIDER_WIDTH = 512;
+    final Orientation SLIDER_ORIENTATION = Orientation.HORIZONTAL;
+    final double MAJOR_TICK_UNIT = 15;
+    final int MINOR_TICK_COUNT = 5;
 
     /**
      * start launches gui app
@@ -36,14 +40,13 @@ public class Main extends Application {
          */
         for (int i = 0; i < rgbSlideArray.length; i++) {
             rgbSlideArray[i] = new Slider(0, 255, 0);
-            rgbSlideArray[i].setOrientation(Orientation.HORIZONTAL);
-            rgbSlideArray[i].setMajorTickUnit(15);
-            rgbSlideArray[i].setMinorTickCount(5);
+            rgbSlideArray[i].setOrientation(SLIDER_ORIENTATION);
+            rgbSlideArray[i].setMajorTickUnit(MAJOR_TICK_UNIT);
+            rgbSlideArray[i].setMinorTickCount(MINOR_TICK_COUNT);
             rgbSlideArray[i].setShowTickMarks(true);
             rgbSlideArray[i].setShowTickLabels(true);
-            rgbSlideArray[i].setPrefWidth(512);
+            rgbSlideArray[i].setPrefWidth(SLIDER_WIDTH);
         }
-
 
         // Create labels for sliders
         Label redSliderLabel = new Label("Red:");
@@ -67,8 +70,18 @@ public class Main extends Application {
         VBox vbox = new VBox(10, redHbox, greenHbox, blueHbox,
                 buttonHBox, textBox);
         vbox.setPadding(new Insets(10));
+
         // Create scene with Vbox as the root node.
         Scene scene = new Scene(vbox);
+
+        // Register event handlers for the sliders
+        // Red sliders
+        rgbSlideArray[0].valueProperty().addListener(
+                (observable, oldValue, newValue) ->
+                {
+                    // Assign the new red value to the
+                    int redValue = (int) newValue;
+                });
 
         // Set title and launch stage
         stage.setTitle("Color Demo");
@@ -78,7 +91,7 @@ public class Main extends Application {
 
     /**
      *  Main launches launch.
-     * @param args
+     * @param args Command line arguments
      */
     public static void main(String[] args) {
         launch(args);
