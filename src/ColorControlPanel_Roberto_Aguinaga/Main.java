@@ -112,8 +112,16 @@ public class Main extends Application {
         // Register a handler for the textfield input / button
         applyRGBValueButton.setOnAction(event ->
         {
-            String string = hexTextBox.getText();
-            bigTextBox.setStyle(makeInlineStyle(string));
+            String userInput = hexTextBox.getText();
+            bigTextBox.setStyle(makeInlineStyle(userInput));
+            try {
+
+            } catch (Exception e) {
+                bigTextBox.setText("Gotbad hex value " +
+                        "input. Try again!\nUse 000000 format, " +
+                        "do not include the pound (hashtag for you " +
+                        "youths).");
+            }
         });
 
         // Create scene with Vbox as the root node.
@@ -153,7 +161,7 @@ public class Main extends Application {
     private String makeInlineStyle(String textBoxInput) {
         String tempString = "";
         try {
-            
+            tempString = "-fx-text-fill: #" + textBoxInput
         } catch (Exception e) {
 
         }
