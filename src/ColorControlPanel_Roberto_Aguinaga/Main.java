@@ -112,12 +112,13 @@ public class Main extends Application {
         // Register a handler for the textfield input / button
         applyRGBValueButton.setOnAction(event ->
         {
-            String string =
+            String string = hexTextBox.getText();
+            bigTextBox.setStyle(makeInlineStyle(string));
         });
 
         // Create scene with Vbox as the root node.
         Scene scene = new Scene(vbox);
-        
+
         // Set title and launch stage
         stage.setTitle("Color Demonstrator");
         stage.setScene(scene);
@@ -150,7 +151,8 @@ public class Main extends Application {
     }
 
     private String makeInlineStyle(String textBoxInput) {
-        String tempString = "#";
-
+        try {
+            
+        }
     }
 }
