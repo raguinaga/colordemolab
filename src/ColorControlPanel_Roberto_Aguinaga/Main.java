@@ -62,7 +62,8 @@ public class Main extends Application {
         // Create textarea, textfield and button controls
         TextArea bigTextBox = new TextArea("Sample text(You can " +
                 "put your own words here!).");
-        TextField hexTextBox = new TextField();
+        TextField hexTextBox = new TextField("Please enter a hex " +
+                "value here.");
         Button applyRGBValueButton = new Button("Apply RGB Value");
 
         // Create HBoxes for sliders and their labels
