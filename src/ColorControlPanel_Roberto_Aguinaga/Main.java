@@ -60,9 +60,9 @@ public class Main extends Application {
         Label blueSliderLabel = new Label("Blue:");
 
         // Create textarea, textfield and button controls
-        TextArea textBox = new TextArea();
-        TextField typedRGBValue = new TextField("Sample text(You can " +
+        TextArea bigTextBox = new TextArea("Sample text(You can " +
                 "put your own words here!).");
+        TextField hexTextBox = new TextField();
         Button applyRGBValueButton = new Button("Apply RGB Value");
 
         // Create HBoxes for sliders and their labels
@@ -72,11 +72,11 @@ public class Main extends Application {
                 rgbSlideArray[1]);
         HBox blueHbox = new HBox(10, blueSliderLabel,
                 rgbSlideArray[2]);
-        HBox buttonHBox = new HBox(typedRGBValue, applyRGBValueButton);
+        HBox buttonHBox = new HBox(hexTextBox, applyRGBValueButton);
 
         // Create a VBox to house the Hboxes, add padding.
         VBox vbox = new VBox(10, redHbox, greenHbox, blueHbox,
-                buttonHBox, textBox);
+                buttonHBox, bigTextBox);
         vbox.setPadding(new Insets(10));
 
         // Create scene with Vbox as the root node.
@@ -88,7 +88,7 @@ public class Main extends Application {
                 (observable, oldValue, newValue) ->
                 {
                     redValue = newValue.intValue();
-                    textBox.setStyle(makeInlineStyle(redValue,
+                    bigTextBox.setStyle(makeInlineStyle(redValue,
                             greenValue, blueValue));
                 });
 
@@ -97,7 +97,7 @@ public class Main extends Application {
                 (observable, oldValue, newValue) ->
                 {
                     greenValue = newValue.intValue();
-                    textBox.setStyle(makeInlineStyle(redValue,
+                    bigTextBox.setStyle(makeInlineStyle(redValue,
                             greenValue, blueValue));
                 });
 
@@ -106,11 +106,14 @@ public class Main extends Application {
                 (observable, oldValue, newValue) ->
                 {
                     blueValue = newValue.intValue();
-                    textBox.setStyle(makeInlineStyle(redValue,
+                    bigTextBox.setStyle(makeInlineStyle(redValue,
                             greenValue, blueValue));
                 });
-        // Register a handler for the textfield input
-        typedRGBValue
+        // Register a handler for the textfield input / button
+        applyRGBValueButton.setOnAction(event ->
+        {
+            String string =
+        });
 
         // Set title and launch stage
         stage.setTitle("Color Demonstrator");
