@@ -158,14 +158,5 @@ public class Main extends Application {
         return styleString = String.format("-fx-text-fill: rgb" +
                 "(%d,%d,%d);", r, g, b);
     }
-
-    private String makeInlineStyle(String textBoxInput) {
-        String tempString = "";
-        try {
-            tempString = "-fx-text-fill: #" + textBoxInput
-        } catch (Exception e) {
-
-        }
-        return tempString;
-    }
+    
 }
