@@ -113,15 +113,8 @@ public class Main extends Application {
         applyRGBValueButton.setOnAction(event ->
         {
             String userInput = hexTextBox.getText();
-            try {
                 String inlineStyle = "-fx-text-fill: #" + userInput;
                 bigTextBox.setStyle(inlineStyle);
-            } catch (Exception e) {
-                bigTextBox.setText("Gotbad hex value " +
-                        "input. Try again!\nUse 000000 format, " +
-                        "do not include the pound (hashtag for you " +
-                        "youths).");
-            }
         });
 
         // Create scene with Vbox as the root node.
