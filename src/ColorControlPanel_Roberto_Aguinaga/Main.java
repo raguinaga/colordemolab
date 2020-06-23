@@ -1,3 +1,4 @@
+// Main package
 package ColorControlPanel_Roberto_Aguinaga;
 
 // Begin javaFX imports
@@ -59,7 +60,7 @@ public class Main extends Application {
         Label greenSliderLabel = new Label("Green:");
         Label blueSliderLabel = new Label("Blue:");
 
-        // Create textarea, textfield and button controls
+        // Create textArea, textField and button controls
         TextArea bigTextBox = new TextArea("Sample text(You can " +
                 "put your own words here!).");
         TextField hexTextBox = new TextField("Please enter a hex " +
@@ -75,13 +76,11 @@ public class Main extends Application {
                 rgbSlideArray[2]);
         HBox buttonHBox = new HBox(hexTextBox, applyRGBValueButton);
 
-        // Create a VBox to house the Hboxes, add padding.
+        // Create a VBox to house the HBoxes, add padding.
         VBox vbox = new VBox(10, redHbox, greenHbox, blueHbox,
                 buttonHBox, bigTextBox);
         vbox.setPadding(new Insets(10));
 
-        // Create scene with Vbox as the root node.
-        Scene scene = new Scene(vbox);
         // Register event handlers for the sliders, note that the
         // handlers make calls to another method.
         // Red slider
@@ -116,6 +115,9 @@ public class Main extends Application {
             String string =
         });
 
+        // Create scene with Vbox as the root node.
+        Scene scene = new Scene(vbox);
+        
         // Set title and launch stage
         stage.setTitle("Color Demonstrator");
         stage.setScene(scene);
