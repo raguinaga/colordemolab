@@ -53,7 +53,7 @@ public class Main extends Application {
             rgbSlideArray[i].setShowTickMarks(true);
             rgbSlideArray[i].setShowTickLabels(true);
             rgbSlideArray[i].setPrefWidth(SLIDER_WIDTH);
-        } 
+        }
 
         // Create labels for sliders
         Label redSliderLabel = new Label("Red:");
@@ -65,7 +65,7 @@ public class Main extends Application {
                 "put your own words here!).");
         TextField hexTextBox = new TextField("Please enter a hex " +
                 "value here.");
-        Button applyRGBValueButton = new Button("Apply RGB Value");
+        Button applyRGBValueButton = new Button("Apply Color Value");
 
         // Create HBoxes for sliders and their labels
         HBox redHbox = new HBox(10, redSliderLabel,
