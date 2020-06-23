@@ -113,7 +113,6 @@ public class Main extends Application {
         applyRGBValueButton.setOnAction(event ->
         {
             String userInput = hexTextBox.getText();
-            bigTextBox.setStyle(makeInlineStyle(userInput));
             try {
                 String inlineStyle = "-fx-text-fill: #" + userInput;
                 bigTextBox.setStyle(inlineStyle);
@@ -158,5 +157,5 @@ public class Main extends Application {
         return styleString = String.format("-fx-text-fill: rgb" +
                 "(%d,%d,%d);", r, g, b);
     }
-    
+
 }
