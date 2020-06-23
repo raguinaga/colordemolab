@@ -151,8 +151,12 @@ public class Main extends Application {
     }
 
     private String makeInlineStyle(String textBoxInput) {
+        String tempString = "";
         try {
             
+        } catch (Exception e) {
+
         }
+        return tempString;
     }
 }
