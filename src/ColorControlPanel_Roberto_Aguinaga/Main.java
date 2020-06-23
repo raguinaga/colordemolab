@@ -2,10 +2,7 @@
 package ColorControlPanel_Roberto_Aguinaga;
 
 // Begin javaFX imports
-
-import com.sun.javafx.css.parser.CSSParser;
 import javafx.application.Application;
-import javafx.beans.value.ObservableValue;
 import javafx.stage.Stage;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
