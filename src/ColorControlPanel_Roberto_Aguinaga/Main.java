@@ -53,7 +53,7 @@ public class Main extends Application {
             rgbSlideArray[i].setShowTickMarks(true);
             rgbSlideArray[i].setShowTickLabels(true);
             rgbSlideArray[i].setPrefWidth(SLIDER_WIDTH);
-        }
+        } 
 
         // Create labels for sliders
         Label redSliderLabel = new Label("Red:");
