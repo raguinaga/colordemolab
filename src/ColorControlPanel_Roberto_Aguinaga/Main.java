@@ -61,7 +61,8 @@ public class Main extends Application {
 
         // Create textarea, textfield and button controls
         TextArea textBox = new TextArea();
-        TextField typedRGBValue = new TextField();
+        TextField typedRGBValue = new TextField("Sample text(You can " +
+                "put your own words here!).");
         Button applyRGBValueButton = new Button("Apply RGB Value");
 
         // Create HBoxes for sliders and their labels
@@ -108,7 +109,8 @@ public class Main extends Application {
                     textBox.setStyle(makeInlineStyle(redValue,
                             greenValue, blueValue));
                 });
-        // string ready for use in inline styling
+        // Register a handler for the textfield input
+        typedRGBValue
 
         // Set title and launch stage
         stage.setTitle("Color Demonstrator");
