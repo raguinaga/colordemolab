@@ -16,15 +16,16 @@ import javafx.geometry.Insets;
 
 public class Main extends Application {
     /* Const values for sliders to ensure consistency?
-    *  Also provide some static ints to hold the changing rgb values */
+     *  Also provide some static ints to hold the changing rgb values */
     private final double SLIDER_WIDTH = 512;
     private final Orientation SLIDER_ORIENTATION =
             Orientation.HORIZONTAL;
     private final double MAJOR_TICK_UNIT = 15;
     private final int MINOR_TICK_COUNT = 5;
-    private static int redValue = 00;
-    private static int greenValue = 00;
-    private static int blueValue = 00;
+    private static int redValue = 0;
+    private static int greenValue = 0;
+    private static int blueValue = 0;
+
     /**
      * start launches gui app
      *
@@ -79,7 +80,8 @@ public class Main extends Application {
 
         // Create scene with Vbox as the root node.
         Scene scene = new Scene(vbox);
-        // Register event handlers for the sliders
+        // Register event handlers for the sliders, note that the
+        // handlers make calls to another method.
         // Red slider
         rgbSlideArray[0].valueProperty().addListener(
                 (observable, oldValue, newValue) ->
@@ -115,18 +117,32 @@ public class Main extends Application {
     }
 
     /**
-     *  Main launches launch.
+     * Main launches launch.
+     *
      * @param args Command line arguments
      */
     public static void main(String[] args) {
         launch(args);
     }
 
-    String makeInlineStyle(int r, int g, int b) {
-        String tempString ="-fx-text-fill: #";
-        tempString += Integer.toString(r);
-        tempString += Integer.toString(g);
-        tempString += Integer.toString(b);
-        return tempString;
+    /**
+     * This method formats a string for use with javafx's inline
+     * styling of text colors. It uses the rgb(n,n,n) format, where n
+     * is an integer value from 0 to 255.
+     *
+     * @param r The red color value
+     * @param g The green color value
+     * @param b The blue color value
+     * @return
+     */
+    private String makeInlineStyle(int r, int g, int b) {
+        String styleString;
+        return styleString = String.format("-fx-text-fill: rgb" +
+                "(%d,%d,%d);", r, g, b);
+    }
+
+    private String makeInlineStyle(String textBoxInput) {
+        String tempString = "#";
+
     }
 }
