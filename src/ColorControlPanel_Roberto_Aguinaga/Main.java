@@ -65,7 +65,7 @@ public class Main extends Application {
                 "put your own words here!).");
         TextField hexTextBox = new TextField("Please enter a hex " +
                 "value here.");
-        Button applyRGBValueButton = new Button("Apply Color Value");
+        Button applyHexValButton = new Button("Apply Color Value");
 
         // Create HBoxes for sliders and their labels
         HBox redHbox = new HBox(10, redSliderLabel,
@@ -74,7 +74,7 @@ public class Main extends Application {
                 rgbSlideArray[1]);
         HBox blueHbox = new HBox(10, blueSliderLabel,
                 rgbSlideArray[2]);
-        HBox buttonHBox = new HBox(hexTextBox, applyRGBValueButton);
+        HBox buttonHBox = new HBox(hexTextBox, applyHexValButton);
 
         // Create a VBox to house the HBoxes, add padding.
         VBox vbox = new VBox(10, redHbox, greenHbox, blueHbox,
@@ -110,7 +110,7 @@ public class Main extends Application {
                             greenValue, blueValue));
                 });
         // Register a handler for the textfield input / button
-        applyRGBValueButton.setOnAction(event ->
+        applyHexValButton.setOnAction(event ->
         {
             String userInput = hexTextBox.getText();
             String inlineStyle = "-fx-text-fill: #" + userInput;
