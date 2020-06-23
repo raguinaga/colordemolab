@@ -2,7 +2,10 @@
 package ColorControlPanel_Roberto_Aguinaga;
 
 // Begin javaFX imports
+
+import com.sun.javafx.css.parser.CSSParser;
 import javafx.application.Application;
+import javafx.beans.value.ObservableValue;
 import javafx.stage.Stage;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
@@ -113,8 +116,8 @@ public class Main extends Application {
         applyRGBValueButton.setOnAction(event ->
         {
             String userInput = hexTextBox.getText();
-                String inlineStyle = "-fx-text-fill: #" + userInput;
-                bigTextBox.setStyle(inlineStyle);
+            String inlineStyle = "-fx-text-fill: #" + userInput;
+            bigTextBox.setStyle(inlineStyle);
         });
 
         // Create scene with Vbox as the root node.
@@ -126,14 +129,6 @@ public class Main extends Application {
         stage.show();
     }
 
-    /**
-     * Main launches launch.
-     *
-     * @param args Command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
 
     /**
      * This method formats a string for use with javafx's inline
@@ -149,6 +144,15 @@ public class Main extends Application {
         String styleString;
         return styleString = String.format("-fx-text-fill: rgb" +
                 "(%d,%d,%d);", r, g, b);
+    }
+
+    /**
+     * Main launches launch.
+     *
+     * @param args Command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
     }
 
 }
