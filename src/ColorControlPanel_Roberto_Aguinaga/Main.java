@@ -1,5 +1,6 @@
 package ColorControlPanel_Roberto_Aguinaga;
 
+// Begin javaFX imports
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.geometry.Orientation;
@@ -14,12 +15,16 @@ import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
 
 public class Main extends Application {
-    /* Const values for sliders to ensure consistency? */
-    final double SLIDER_WIDTH = 512;
-    final Orientation SLIDER_ORIENTATION = Orientation.HORIZONTAL;
-    final double MAJOR_TICK_UNIT = 15;
-    final int MINOR_TICK_COUNT = 5;
-
+    /* Const values for sliders to ensure consistency?
+    *  Also provide some static ints to hold the changing rgb values */
+    private final double SLIDER_WIDTH = 512;
+    private final Orientation SLIDER_ORIENTATION =
+            Orientation.HORIZONTAL;
+    private final double MAJOR_TICK_UNIT = 15;
+    private final int MINOR_TICK_COUNT = 5;
+    private static int redValue = 00;
+    private static int greenValue = 00;
+    private static int blueValue = 00;
     /**
      * start launches gui app
      *
@@ -55,16 +60,17 @@ public class Main extends Application {
 
         // Create textarea, textfield and button controls
         TextArea textBox = new TextArea();
-        TextField userRGBValue = new TextField();
-        Button applyRGBValue = new Button("Apply RGB Value");
+        TextField typedRGBValue = new TextField();
+        Button applyRGBValueButton = new Button("Apply RGB Value");
 
         // Create HBoxes for sliders and their labels
         HBox redHbox = new HBox(10, redSliderLabel,
                 rgbSlideArray[0]);
         HBox greenHbox = new HBox(10, greenSliderLabel,
                 rgbSlideArray[1]);
-        HBox blueHbox = new HBox(10, blueSliderLabel, rgbSlideArray[2]);
-        HBox buttonHBox = new HBox(userRGBValue, applyRGBValue);
+        HBox blueHbox = new HBox(10, blueSliderLabel,
+                rgbSlideArray[2]);
+        HBox buttonHBox = new HBox(typedRGBValue, applyRGBValueButton);
 
         // Create a VBox to house the Hboxes, add padding.
         VBox vbox = new VBox(10, redHbox, greenHbox, blueHbox,
@@ -73,18 +79,37 @@ public class Main extends Application {
 
         // Create scene with Vbox as the root node.
         Scene scene = new Scene(vbox);
-
         // Register event handlers for the sliders
-        // Red sliders
+        // Red slider
         rgbSlideArray[0].valueProperty().addListener(
                 (observable, oldValue, newValue) ->
                 {
-                    // Assign the new red value to the
-                    int redValue = (int) newValue;
+                    redValue = newValue.intValue();
+                    textBox.setStyle(makeInlineStyle(redValue,
+                            greenValue, blueValue));
                 });
 
+        // Green slider
+        rgbSlideArray[1].valueProperty().addListener(
+                (observable, oldValue, newValue) ->
+                {
+                    greenValue = newValue.intValue();
+                    textBox.setStyle(makeInlineStyle(redValue,
+                            greenValue, blueValue));
+                });
+
+        // Blue slider
+        rgbSlideArray[2].valueProperty().addListener(
+                (observable, oldValue, newValue) ->
+                {
+                    blueValue = newValue.intValue();
+                    textBox.setStyle(makeInlineStyle(redValue,
+                            greenValue, blueValue));
+                });
+        // string ready for use in inline styling
+
         // Set title and launch stage
-        stage.setTitle("Color Demo");
+        stage.setTitle("Color Demonstrator");
         stage.setScene(scene);
         stage.show();
     }
@@ -95,5 +120,13 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+
+    String makeInlineStyle(int r, int g, int b) {
+        String tempString ="-fx-text-fill: #";
+        tempString += Integer.toString(r);
+        tempString += Integer.toString(g);
+        tempString += Integer.toString(b);
+        return tempString;
     }
 }
