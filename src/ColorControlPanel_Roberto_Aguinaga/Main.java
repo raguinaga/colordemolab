@@ -15,6 +15,7 @@ import javafx.geometry.Orientation;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
+import java.util.regex.Matcher;
 
 public class Main extends Application {
     /* Const values for sliders to ensure consistency?
@@ -145,6 +146,9 @@ public class Main extends Application {
                 "(%d,%d,%d);", r, g, b);
     }
 
+    private void checkInput(String hexString) {
+        Matcher.
+    }
     /**
      * Main launches launch.
      *
