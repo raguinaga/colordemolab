@@ -17,7 +17,7 @@ import javafx.geometry.Insets;
 
 public class Main extends Application {
     /* Const values for sliders to ensure consistency?
-     *  Also provide some static ints to hold the changing rgb values */
+     * Also provide some static ints to hold the changing rgb values */
     private final double SLIDER_WIDTH = 512;
     private final Orientation SLIDER_ORIENTATION =
             Orientation.HORIZONTAL;
@@ -61,7 +61,7 @@ public class Main extends Application {
         Label blueSliderLabel = new Label("Blue:");
 
         // Create textArea, textField and button controls
-        TextArea bigTextBox = new TextArea("Sample text(You can " +
+        TextArea bigTextBox = new TextArea("Sample text (You can " +
                 "put your own words here!).");
         TextField hexTextBox = new TextField("Please enter a hex " +
                 "value here.");
