@@ -65,7 +65,8 @@ public class Main extends Application {
                 "put your own words here!).");
         TextField hexTextBox = new TextField("Please enter a hex " +
                 "value here.");
-        Button applyHexValButton = new Button("Apply Color Value");
+        hexTextBox.setPrefWidth(180); // Necessary to see default text.
+        Button applyHexValButton = new Button("Apply Color");
 
         // Create HBoxes for sliders, labels and the texfield/button
         HBox redHbox = new HBox(10, redSliderLabel,
