@@ -67,7 +67,7 @@ public class Main extends Application {
                 "value here.");
         Button applyHexValButton = new Button("Apply Color Value");
 
-        // Create HBoxes for sliders and their labels
+        // Create HBoxes for sliders, labels and the texfield/button
         HBox redHbox = new HBox(10, redSliderLabel,
                 rgbSlideArray[0]);
         HBox greenHbox = new HBox(10, greenSliderLabel,
