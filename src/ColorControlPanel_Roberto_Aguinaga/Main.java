@@ -4,13 +4,13 @@ package ColorControlPanel_Roberto_Aguinaga;
 // Begin javaFX imports
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
+import javafx.geometry.Orientation;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
@@ -63,9 +63,9 @@ public class Main extends Application {
         // Create textArea, textField and button controls
         TextArea bigTextBox = new TextArea("Sample text (You can " +
                 "put your own words here!).");
-        TextField hexTextBox = new TextField("Please enter a hex " +
-                "value here.");
-        hexTextBox.setPrefWidth(180); // Necessary to see default text.
+        TextField hexTextBox = new TextField();
+        hexTextBox.setTooltip(new Tooltip("Enter a hex value (no # " +
+                "required)"));
         Button applyHexValButton = new Button("Apply Color");
 
         // Create HBoxes for sliders, labels and the texfield/button
